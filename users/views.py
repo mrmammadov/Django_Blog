@@ -9,8 +9,7 @@ def register(request):
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            return redirect('blogs-home')
-            # return HttpResponse(form.cleaned_data.get('your_name'))
+            return redirect('user-login')
     
     else:
         form = UserRegisterForm()

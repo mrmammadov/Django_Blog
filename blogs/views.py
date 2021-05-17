@@ -11,4 +11,5 @@ def home(request):
 
 @login_required
 def about(request):
+    # if not request.user.is_authorized:
     return render(request, 'blogs/about.html')
