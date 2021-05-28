@@ -15,3 +15,16 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blogs-detail', kwargs={'pk': self.id})
+
+
+class Tag(models.Model):
+    choices = [
+        ('python', 'python'),
+        ('java', 'java'), 
+        ('react', 'react')
+    ]
+    title = models.CharField(max_length=20, choices=choices)
+    posts = models.ManyToManyField(Post)
+
+    def __str__(self):
+        return self.title
